@@ -28,13 +28,19 @@ Update personal information and password.
 
 ***Youtube Video Link : https://youtu.be/2tbqvXYrvuc?si=M9wNDLLuc3dg4Hcb***
 
+Home Page :
 ![ss1](https://github.com/user-attachments/assets/458a036a-d73a-4f89-b834-cb79585e9eb1)
-![Uploading ss2.PNG…]()
-![Uploading ss3.PNG…]()
-![Uploading ss4.PNG…]()
-![Uploading ss5.PNG…]()
-![Uploading ss6.PNG…]()
+![ss2](https://github.com/user-attachments/assets/2229bcc8-4df4-4626-9bb3-5569ca3c2db1)
+Login :
+![ss3](https://github.com/user-attachments/assets/b993250a-b4f8-4df6-991e-ddad5accdbbe)
+User Registration :
+![ss4](https://github.com/user-attachments/assets/ede910f6-800b-46d5-b959-559fc91d84a1)
+Products :
+![ss5](https://github.com/user-attachments/assets/3a8bf288-a6ee-4380-b3ab-872f718134a6)
+![ss6](https://github.com/user-attachments/assets/8187d517-3d73-4f8a-82ad-46b3a79c6b1a)
+Place Order Section :
 ![ss7](https://github.com/user-attachments/assets/153c978b-b5e0-4515-aca7-a82f8c7b0148)
+Admin Dashboard :
 ![ss8](https://github.com/user-attachments/assets/fa4383e3-e1d6-4ace-880c-bd7750ff90f1)
 
 
