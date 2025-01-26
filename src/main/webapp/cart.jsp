@@ -59,8 +59,9 @@
                 <input class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search">
                 <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
             </form>
+
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link text-white" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="index.jsp">Home</a></li>
                 <li class="nav-item dropdown">
                     <!-- Dropdown for Products -->
                     <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -76,8 +77,31 @@
                     <a class="nav-link text-white" href="cart.jsp">
                         <i class="fas fa-shopping-cart"></i> Cart
                     </a>
-                <li class="nav-item"><a class="nav-link text-white" href="./login.jsp">Login</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="./admin_home_page.jsp">Admin</a></li>
+                    <!-- Conditional Rendering for Login/Logout -->
+                        <%
+                    Object user = session.getAttribute("user");
+                    if (user == null) {
+                %>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="login.jsp">Login</a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-secondary" disabled>Logout</button>
+                </li>
+                <%
+                } else {
+                %>
+                <li class="nav-item">
+                    <button class="btn btn-secondary" disabled>Login</button>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="logout.jsp">Logout</a>
+                </li>
+                <% } %>
+
+                <%--
+                                <li class="nav-item"><a class="nav-link text-white" href="./admin_home_page.jsp">Admin</a></li>
+                --%>
             </ul>
         </div>
     </div>
@@ -164,6 +188,11 @@
         </div>
     </div>
 </div>
+<footer class="bg-dark text-white py-3">
+    <div class="container text-center">
+        <p>&copy; 2025 FreshBasket. All rights reserved.</p>
+    </div>
+</footer>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

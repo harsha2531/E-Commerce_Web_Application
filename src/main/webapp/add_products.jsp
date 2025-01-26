@@ -20,13 +20,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="home.jsp">Home</a>
+                    <a class="nav-link" href="index.jsp">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="all_products.jsp">All Products</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="add_product.jsp">Add Products</a>
+                    <a class="nav-link" href="add_products.jsp">Add Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="all_categories.jsp">All Categories</a>
@@ -48,7 +48,29 @@
 <!-- Add Product Form -->
 <div class="container mt-5">
     <h2 class="text-center mb-4">Add Product</h2>
-    <form action="add_product_action.jsp" method="POST" enctype="multipart/form-data">
+    <%
+        String message = request.getParameter("message");
+        String error = request.getParameter("error");
+    %>
+    <%
+        if (message != null){
+    %>
+    <div style="color: green">
+        <%=message %>
+    </div>
+    <%
+        }
+    %>
+    <%
+        if (error != null){
+    %>
+    <div style="color: red">
+        <%=error %>
+    </div>
+    <%
+        }
+    %>
+    <form action="add_product" method="POST" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="name" class="form-label">Product Name</label>
             <input type="text" class="form-control" id="name" name="name" required>
@@ -66,10 +88,10 @@
             <input type="number" class="form-control" id="stock" name="stock" required min="0">
         </div>
         <div class="mb-3">
-            <label for="category" class="form-label">Category</label>
-            <select class="form-select" id="category" name="category" required>
-                <option value="Vegetables">Vegetables</option>
-                <option value="Fruits">Fruits</option>
+            <label for="category_id" class="form-label">Category</label>
+            <select class="form-select" id="category_id" name="category_id" required>
+                <option value="1">Vegetables</option>
+                <option value="2">Fruits</option>
             </select>
         </div>
         <div class="mb-3">

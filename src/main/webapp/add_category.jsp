@@ -48,9 +48,31 @@
 <!-- Add Product Form -->
 <div class="container mt-5">
     <h2 class="text-center mb-4">Add Category</h2>
-    <form action="add_product_action.jsp" method="POST" enctype="multipart/form-data">
+    <%
+        String message = request.getParameter("message");
+        String error = request.getParameter("error");
+    %>
+    <%
+        if (message != null){
+    %>
+    <div style="color: green">
+        <%=message %>
+    </div>
+    <%
+        }
+    %>
+    <%
+        if (error != null){
+    %>
+    <div style="color: red">
+        <%=error %>
+    </div>
+    <%
+        }
+    %>
+    <form action="add_category" method="POST" enctype="multipart/form-data">
         <div class="mb-3">
-            <label for="name" class="form-label">Product Name</label>
+            <label for="name" class="form-label">Category Name</label>
             <input type="text" class="form-control" id="name" name="name" required>
         </div>
         <div class="mb-3">

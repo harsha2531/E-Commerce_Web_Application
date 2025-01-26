@@ -78,7 +78,7 @@
                 <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
             </form>
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link text-white" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="index.jsp">Home</a></li>
                 <li class="nav-item dropdown">
                     <!-- Dropdown for Products -->
                     <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
