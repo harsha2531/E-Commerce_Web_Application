@@ -64,7 +64,33 @@
 <body>
 <div class="register-form">
     <h2 id="topic">User Registration</h2>
-    <form action="registerServlet" method="POST">
+
+    <%
+        String message = request.getParameter("message");
+        String error = request.getParameter("error");
+    %>
+    <%
+        if (message != null){
+    %>
+    <div style="color: yellow">
+        <%=message %>
+    </div>
+    <%
+        }
+    %>
+    <%
+        if (error != null){
+    %>
+    <div style="color: red">
+        <%=error %>
+    </div>
+    <%
+        }
+    %>
+    <!-- Alert Section -->
+    <div id="alert-container" class="mt-3"></div>
+
+    <form action="register" method="POST">
         <!-- Full Name -->
         <div class="mb-3">
             <label for="name" class="form-label">Full Name</label>
@@ -115,6 +141,35 @@
     </div>
 </div>
 
+<script>
+    // Function to display alerts dynamically
+    function showAlert(message, status) {
+        const alertContainer = document.getElementById('alert-container');
+        const alertType = status === 'success' ? 'alert-success' : 'alert-danger';
+
+        alertContainer.innerHTML = `
+            <div class="alert ${alertType} alert-dismissible fade show" role="alert">
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `;
+    }
+
+    // Get query parameters from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const message = urlParams.get('message');
+    const status = urlParams.get('status');
+
+    // Debugging: Console log the parameters
+    console.log("Message: ", message);
+    console.log("Status: ", status);
+
+    // Display alert if a message is present
+    if (message) {
+        showAlert(message, status);
+    }
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

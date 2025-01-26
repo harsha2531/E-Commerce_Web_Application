@@ -58,9 +58,9 @@
             <th>Description</th>
         </tr>
         </thead>
-        <%-- <tbody>
+         <tbody>
          <!-- Iterate over products list and display them -->
-         <%
+        <%-- <%
              // Example JDBC code to fetch products from the database
              // Assuming you have a Product model and JDBC connection
              String query = "SELECT * FROM products";
@@ -84,19 +84,19 @@
              <td><%= price %></td>
              <td><%= stock %></td>
              <td><%= category %></td>
-             <td><img src="<%= image %>" alt="Product Image" width="100"></td>
+             <td><img src="<%= image %>" alt="Product Image" width="100"></td>--%>
              <td>
-                 <a href="edit_product.jsp?id=<%= id %>" class="btn btn-warning btn-sm">Edit</a>
-                 <a href="delete_product.jsp?id=<%= id %>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
+                 <a href="edit_category.jsp?<%--id=<%= id %>--%>" class="btn btn-warning btn-sm">Edit</a>
+                 <a href="delete_category.jsp?<%--id=<%= id %>--%>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
              </td>
          </tr>
-         <%
+        <%-- <%
                  }
              } catch (Exception e) {
                  e.printStackTrace();
              }
-         %>
-         </tbody>--%>
+         %>--%>
+         </tbody>
     </table>
 </div>
 

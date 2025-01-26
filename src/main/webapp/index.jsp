@@ -8,15 +8,42 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
+        /* Add keyframes for moving multiple background images */
+        @keyframes moveBackgrounds {
+            0% {
+                background-image: url('assets/images/pexels-thegulsah-7338898.jpg');
+                background-position: center center;
+            }
+            25% {
+                background-image: url('assets/images/pexels-valeriya-26950735-h2.jpg');
+                background-position: center left;
+            }
+            50% {
+                background-image: url('assets/images/pexels-viktoria-slowikowska-5677794-h3.jpg');
+                background-position: center right;
+            }
+            75% {
+                background-image: url('assets/images/pexels-n-voitkevich-8939267-h4.jpg');
+                background-position: left center;
+            }
+            100% {
+                background-image: url('assets/images/pexels-kindelmedia-6994261-h5.jpg');
+                background-position: right center;
+            }
+        }
         /* Add a background image to the header */
         header {
-            background: url('assets/images/pexels-thegulsah-7338898.jpg') no-repeat center center/cover;
+            background-image: url('assets/images/pexels-thegulsah-7338898.jpg');
+            background-size: cover;
+            background-position: center center;
             color: white;
             min-height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            animation: moveBackgrounds 20s ease infinite; /* Apply the animation */
+
         }
         header h1 {
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
@@ -39,7 +66,7 @@
             outline: none;
             background: transparent;
             color: #000;
-            padding: 5px 50px;
+            padding: 5px 15px;
         }
     </style>
 </head>
@@ -56,6 +83,28 @@
                 <input class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search">
                 <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
             </form>
+            <%
+                String message = request.getParameter("message");
+                String error = request.getParameter("error");
+            %>
+            <%
+                if (message != null){
+            %>
+            <div style="color: yellow">
+                <%=message %>
+            </div>
+            <%
+                }
+            %>
+            <%
+                if (error != null){
+            %>
+            <div style="color: red">
+                <%=error %>
+            </div>
+            <%
+                }
+            %>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link text-white" href="#">Home</a></li>
                 <li class="nav-item dropdown">
@@ -73,8 +122,31 @@
                     <a class="nav-link text-white" href="cart.jsp">
                         <i class="fas fa-shopping-cart"></i> Cart
                     </a>
-                <li class="nav-item"><a class="nav-link text-white" href="./login.jsp">Login</a></li>
+                    <!-- Conditional Rendering for Login/Logout -->
+                        <%
+                    Object user = session.getAttribute("user");
+                    if (user == null) {
+                %>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="login.jsp">Login</a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-secondary" disabled>Logout</button>
+                </li>
+                <%
+                } else {
+                %>
+                <li class="nav-item">
+                    <button class="btn btn-secondary" disabled>Login</button>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="logout.jsp">Logout</a>
+                </li>
+                <% } %>
+
+<%--
                 <li class="nav-item"><a class="nav-link text-white" href="./admin_home_page.jsp">Admin</a></li>
+--%>
             </ul>
         </div>
     </div>
@@ -105,7 +177,7 @@
             <div class="col-md-4 text-center">
                 <i class="bi bi-people-fill display-4 text-success"></i>
                 <h4>Customer Support</h4>
-                <p>We’re here to help with any questions or concerns.</p>
+                <p>We are here to help with any questions or concerns.</p>
             </div>
         </div>
     </div>
@@ -116,6 +188,19 @@
         <p>&copy; 2025 FreshBasket. All rights reserved.</p>
     </div>
 </footer>
+<script>
+    // Check the session from server-side
+    const userLoggedIn = <%= session.getAttribute("user") != null %>;
+
+    // Enable/disable buttons
+    if (userLoggedIn) {
+        document.getElementById("loginBtn").disabled = true;
+        document.getElementById("logoutBtn").disabled = false;
+    } else {
+        document.getElementById("loginBtn").disabled = false;
+        document.getElementById("logoutBtn").disabled = true;
+    }
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

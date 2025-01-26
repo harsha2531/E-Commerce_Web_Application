@@ -33,13 +33,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="home.jsp">Home</a>
+                    <a class="nav-link" href="index.jsp">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="all_products.jsp">All Products</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="add_product.jsp">Add Products</a>
+                    <a class="nav-link" href="add_products.jsp">Add Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="all_categories.jsp">All Categories</a>
