@@ -48,14 +48,14 @@ public class LoginServlet extends HttpServlet {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                // Login successful
+
                 String role = rs.getString("role");
                 HttpSession session = req.getSession();
                 session.setAttribute("email", email);
                 session.setAttribute("role", role);
                 // Assuming login is successful
-                session.setAttribute("user", email); // Or user object
-                session.setAttribute("user", user); // Assuming `user` is the logged-in user object
+                session.setAttribute("user", email);
+                session.setAttribute("user", user);
 
 
 
@@ -65,7 +65,7 @@ public class LoginServlet extends HttpServlet {
                     resp.sendRedirect("admin_home_page.jsp");
                 }
             } else {
-                // Login failed
+
                 resp.sendRedirect("login.jsp?error=Invalid Email or Password..!");
             }
 

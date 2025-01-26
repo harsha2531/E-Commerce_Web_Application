@@ -28,7 +28,7 @@ public class AddProductServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // Get form data
+
         String name = req.getParameter("name");
         String description = req.getParameter("description");
         double price;
@@ -49,7 +49,7 @@ public class AddProductServlet extends HttpServlet {
         String imageName = imagePart.getSubmittedFileName();
         String uploadPath = getServletContext().getRealPath("") + "uploads" + File.separator;
 
-        // Ensure the upload directory exists
+        // Check the upload directory exists
         File uploadDir = new File(uploadPath);
         if (!uploadDir.exists() && !uploadDir.mkdir()) {
             resp.sendRedirect("add_products.jsp?message=Failed to create upload directory.");
@@ -64,9 +64,9 @@ public class AddProductServlet extends HttpServlet {
             return;
         }
 
-        // Database operation
+        //Operate the Database
         try {
-            // Explicitly load the MySQL driver
+
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             // Establish a connection

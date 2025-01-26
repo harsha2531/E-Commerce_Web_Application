@@ -108,7 +108,6 @@
                     <a class="nav-link text-white" href="cart.jsp">
                         <i class="fas fa-shopping-cart"></i> Cart
                     </a>
-                    <!-- Conditional Rendering for Login/Logout -->
                         <%
                     Object user = session.getAttribute("user");
                     if (user == null) {
@@ -235,16 +234,15 @@
         `;
     }
 
-    // Get query parameters from URL
+
     const urlParams = new URLSearchParams(window.location.search);
     const message = urlParams.get('message');
     const status = urlParams.get('status');
 
-    // Debugging: Console log the parameters
     console.log("Message: ", message);
     console.log("Status: ", status);
 
-    // Display alert if a message is present
+    // Display alert
     if (message) {
         showAlert(message, status);
     }

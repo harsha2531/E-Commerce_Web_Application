@@ -1,3 +1,7 @@
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.ResultSet" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,7 +68,7 @@
             <th>Amount</th>
         </tr>
         </thead>
-        <%-- <tbody>
+         <tbody>
          <!-- Iterate over products list and display them -->
          <%
              // Example JDBC code to fetch products from the database
@@ -102,7 +106,7 @@
                  e.printStackTrace();
              }
          %>
-         </tbody>--%>
+         </tbody>
     </table>
 </div>
 

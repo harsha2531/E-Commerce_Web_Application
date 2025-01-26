@@ -1,3 +1,7 @@
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.ResultSet" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,11 +69,11 @@
         </thead>
         <tbody>
         <!-- Iterate over products list and display them -->
-       <%-- <%
+        <%
             // Example JDBC code to fetch products from the database
             // Assuming you have a Product model and JDBC connection
             String query = "SELECT * FROM products";
-            try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/your_database", "username", "password");
+            try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce","root","Ijse@123");
                  Statement stmt = con.createStatement();
                  ResultSet rs = stmt.executeQuery(query)) {
 
@@ -81,26 +85,26 @@
                     int stock = rs.getInt("stock");
                     String category = rs.getString("category");
                     String image = rs.getString("image");
-        %>--%>
+        %>
         <tr>
-           <%-- <td><%= id %></td>
+            <td><%= id %></td>
             <td><%= name %></td>
             <td><%= description %></td>
             <td><%= price %></td>
             <td><%= stock %></td>
             <td><%= category %></td>
-            <td><img src="<%= image %>" alt="Product Image" width="100"></td>--%>
+            <td><img src="<%= image %>" alt="Product Image" width="100"></td>
             <td>
-                <a href="edit_product.jsp?id=<%--<%= id %>--%>" class="btn btn-warning btn-sm">Edit</a>
-                <a href="delete_product.jsp?id=<%--<%= id %>--%>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
+                <a href="edit_product.jsp?id=<%= id %>" class="btn btn-warning btn-sm">Edit</a>
+                <a href="delete_product.jsp?id=<%= id %>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
             </td>
         </tr>
-       <%-- <%
+        <%
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        %>--%>
+        %>
         </tbody>
     </table>
 </div>

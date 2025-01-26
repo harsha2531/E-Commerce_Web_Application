@@ -1,3 +1,7 @@
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.ResultSet" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,13 +26,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="home.jsp">Home</a>
+                    <a class="nav-link" href="index.jsp">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="all_products.jsp">All Products</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="add_product.jsp">Add Products</a>
+                    <a class="nav-link" href="add_products.jsp">Add Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="all_categories.jsp">All Categories</a>
@@ -65,13 +69,11 @@
 
         </tr>
         </thead>
-        <%-- <tbody>
-         <!-- Iterate over products list and display them -->
+         <tbody>
+
          <%
-             // Example JDBC code to fetch products from the database
-             // Assuming you have a Product model and JDBC connection
-             String query = "SELECT * FROM products";
-             try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/your_database", "username", "password");
+             String query = "SELECT * FROM users";
+             try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce", "root", "Ijse@123");
                   Statement stmt = con.createStatement();
                   ResultSet rs = stmt.executeQuery(query)) {
 
@@ -103,7 +105,7 @@
                  e.printStackTrace();
              }
          %>
-         </tbody>--%>
+         </tbody>
     </table>
 </div>
 

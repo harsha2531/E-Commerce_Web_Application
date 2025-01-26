@@ -114,7 +114,7 @@
         <div class="col-md-4">
             <div class="cart-section">
                 <h3>Billing Details</h3>
-                <form action="process_cart.jsp" method="POST">
+                <form action="place_order" method="POST">
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" id="name" name="name" required>

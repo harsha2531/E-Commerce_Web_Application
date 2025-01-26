@@ -51,7 +51,7 @@ public class RegisterServlet extends HttpServlet {
                 ps.close();
                 connection.close();
 
-                // Redirect based on success
+
                /* if (rowsInserted > 0) {
                     resp.sendRedirect("register.jsp?message=User Saved Successfully");
                 } else {

@@ -41,7 +41,7 @@
                 <p><strong>Description:</strong> <%-- <%= product.getDescription() %> --%></p>
             </div>
             <!-- Form -->
-            <form action="process_delete_product.jsp" method="post">
+            <form action="delete_product.jsp" method="post">
                 <!-- Hidden input to pass product ID -->
                 <input type="hidden" name="id" value="<%-- <%= product.getId() %> --%>">
                 <div class="text-center">
